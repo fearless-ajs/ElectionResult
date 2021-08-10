@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppPagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AppPagesController::class, 'home'])->name('home');
+Route::get('/new-result', [AppPagesController::class, 'addResult'])->name('new-result');
+Route::get('/lga-result', [AppPagesController::class, 'lgaResult'])->name('lga-result');
